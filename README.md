@@ -45,7 +45,7 @@ Uses 5 scripts:
 Edit the uEnv.ini so it describes which kernel, initrd and dtb to use.
 A '#' marks a comment.
 # Armbian
-Boot up Armbian for TV-Boxes is more complex compare to the other two solutions. Even uses a second stage boot loader. I have read one of the reasons is bugs in some original boot loaders that prevent colors from showing correctly.
+Boot up Armbian for TV-Boxes is more complex compared to the other two OS. Even uses a second stage boot loader. I have read one of the reasons is bugs in some original boot loaders that prevent colors from showing correctly.
 
 Uses 7 scripts:
 - aml_autoscript
@@ -77,6 +77,22 @@ I do not know why this test even exists. Find a possible solution in the CoreEle
 
 My scripts do not carry this sad test, so CoreElect traces will not disturb.
 
+## Steps to boot Armbian
+### aml_autoscript
+The first script aml_autoscript runs when the so called reset button is pressed after power up ("Toothpick method).
+It's important actions:
+- set variable bootcmd to 'run start_autoscript'
+- set a few other variables for different boot details used by start_autoscript
+- save
+- reboot
+
+### s905_autoscript and emmc_autoscript
+At next power up, start_autoscript runs and either calls s905_autoscript (SD, USB), or emmc_autoscript. 
+Both do load the u-boot.ext into memory and run it. This starts an instance of a newer version of U-Boot which in turn runs boot.scr.
+
+### boot.scr
+This script is executed by the the U-Boot (from u-boot.ext).
+It looks up kernel, ramdisk and device tree from uEnv.txt and loads them into memory. Finally it calls the booti command to start the kernel.
 # CoreElec
 Uses 3 scripts:
 - aml_autoscript
