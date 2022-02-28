@@ -65,7 +65,7 @@ There is a boot.scr and boot.ini in the image, but it looks like they are not us
 Uses 3 scripts:
 - aml_autoscript
 - cfgload
-- config.ini (I am not sure how this is loaded. Only contains comments anyway)
+- config.ini
 - resolution.ini (does not exist in image)
 
 ## Steps to boot CoreElec
@@ -78,20 +78,20 @@ It's important actions:
 
 ### bootcmd
 At next power up, bootcmd runs from the environment and figures out from which drive to boot. Also loads cfgload to get more details, finally starts the kernel with bootm.
-Kernel always has the name kernel.img, dtb is dtb.img
+Kernel always has the name kernel.img, dtb is dtb.img. 
 You need to copy one of the *.dtb files to dtb.img.
 
 ### cfgload
 This is called by the bootcmd to provide more boot details (mainly kernel boot args). It also imports the config.ini and resolution.ini.
 
 ### config.ini
-Imported by cfgload, default only contains comments. Can be used to change settings used by the kernel.
+Imported by cfgload, default file only contains comments. Can be used to change settings used by the kernel.
 
 ### resolution.ini
 This is an optional file and will only be imported by cfgload if it exists.
 
 ## Caution: Running CoreElec will prevent to install Armbian.
-You can read a reflash of the NAND with the original image is required to fix this. Fortunatelly it is easier than that. Just delete the variable "BootFromSD".
+You can read a reflash of the NAND with the original image is required to fix this. Fortunately it is easier than that. Just delete the variable "BootFromSD".
 Reseting the U-Boot environment with default values should help as well:
 
 	defenv
