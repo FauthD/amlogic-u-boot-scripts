@@ -1,0 +1,22 @@
+## Executing script at 01020000
+start s905_aml_autoscript with amlogic u-boot.ext
+card out
+** Bad device mmc 0 **
+reading u-boot.ext
+746678 bytes read in 85 ms (8.4 MiB/s)
+## Starting application at 0x01000000 ...
+
+
+U-Boot 2021.07-rc3-00183-gd6e1cdad51-dirty (May 31 2021 - 22:33:28 +0800) x96-max-plus
+
+Model: AMedia X96 Max+
+SoC:   Amlogic Meson SM1 (Unknown) Revision 2b:b (1:2)
+DRAM:  3.8 GiB
+MMC:   sd@ffe03000: 0, sd@ffe05000: 1, mmc@ffe07000: 2
+Loading Environment from nowhere... OK
+In:    serial
+Out:   serial
+Err:   serial
+Net:   eth0: ethernet@ff3f0000
+Hit any key to stop autoboot:  2  0
+=> 

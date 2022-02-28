@@ -1,0 +1,396 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2022.02.28 16:33:36 =~=~=~=~=~=~=~=~=~=~=~=
+SM1:BL:511f6b:81ca2f;FEAT:A0F83180:20282000;POC:F;RCY:0;EMMC:0;READ:0;0.0;CHK:0;
+bl2_stage_init 0x01
+bl2_stage_init 0x81
+hw id: 0x0001 - pwm id 0x00
+bl2_stage_init 0xc0
+bl2_stage_init 0x02
+
+L0:00000000
+L1:00000703
+L2:00008067
+L3:15000020
+S1:00000000
+B2:20282000
+B1:a0f83180
+
+TE: 144497
+
+BL2 Built : 14:57:11, Sep  1 2020. g12a g3c95fed - gongwei.chen@droid11-sz
+
+Board ID = 1
+Set cpu clk to 24M
+Set clk81 to 24M
+Use GP1_pll as DSU clk.
+DSU clk: 1200 Mhz
+CPU clk: 1200 MHz
+Set clk81 to 166.6M
+eMMC boot @ 0
+sw8 s
+board id: 1
+Load FIP HDR DDR from eMMC, src: 0x00010200, des: 0xfffd0000, size: 0x00004000, part: 0
+fw parse done
+PIEI prepare done
+00000000
+emmc switch 1 ok
+ddr saved addr:00016000
+Load ddr parameter from eMMC, src: 0x02c00000, des: 0xfffd0000, size: 0x00001000, part: 0
+00000000
+emmc switch 0 ok
+fastboot data verify
+result: 255
+Cfg max: 12, cur: 1. Board id: 255. Force loop cfg
+DDR4 probe
+
+LPDDR4_PHY_V_0_1_22-Built : 14:57:16, Sep  1 2020. g12a g3c95fed - gongwei.chen@droid11-sz
+ddr clk to 1320MHz
+
+dmc_version 0001
+Check phy result
+INFO : End of initialization
+INFO : ERROR : Training has failed!
+1D training failed
+Cfg max: 12, cur: 2. Board id: 255. Force loop cfg
+DDR4 probe
+ddr clk to 1320MHz
+
+dmc_version 0001
+Check phy result
+INFO : End of initialization
+INFO : ERROR : Training has failed!
+1D training failed
+Cfg max: 12, cur: 3. Board id: 255. Force loop cfg
+DDR3 probe
+ddr clk to 648MHz
+
+dmc_version 0001
+Check phy result
+INFO : End of initialization
+INFO : ERROR : Training has failed!
+1D training failed
+Cfg max: 12, cur: 4. Board id: 255. Force loop cfg
+DDR3 probe
+ddr clk to 648MHz
+
+dmc_version 0001
+Check phy result
+INFO : End of initialization
+INFO : End of read enable training
+INFO : End of fine write leveling
+INFO : End of read dq deskew training
+INFO : End of MPR read delay center optimization
+INFO : End of Write leveling coarse delay
+INFO : End of write delay center optimization
+INFO : End of read delay center optimization
+INFO : End of max read latency training
+INFO : Training has run successfully!
+ dwc_ddrphy_apb_wr((0<<20)|(2<<16)|(0<<12)|(0xb0):00e4 
+1D training succeed
+auto size-- 65535DDR cs0 size: 4096MB
+DDR cs1 size: 0MB
+DMC_DDR_CTRL: 0000002dDDR size: 3928MB
+cs0 DataBus test pass
+cs0 AddrBus test pass
+
+non-sec scramble use zero key
+ddr scramble enabled
+
+100bdlr_step_size ps== 443
+result report
+boot times 0Enable ddr reg access
+00000000
+emmc switch 3 ok
+Authentication key not yet programmed
+get rpmb counter error 0x00000007
+00000000
+emmc switch 0 ok
+Load FIP HDR from eMMC, src: 0x00010200, des: 0x01700000, size: 0x00004000, part: 0
+Load BL3X from eMMC, src: 0x00078200, des: 0x01768000, size: 0x000f8200, part: 0
+0.0;M3 CHK:0;cm4_sp_mode 0
+
+[Image: g12a_v1.1.3394-7d43064d5 2020-05-07 15:37:06 gongwei.chen@droid11-sz]
+
+OPS=0x01
+
+ring efuse init
+
+2b 0b 01 00 01 26 27 00 00 11 34 38 42 59 56 50 
+
+[0.014423 Inits done]
+
+secure task start!
+high task start!
+low task start!
+boot bl31
+NOTICE:  BL31: v1.3(release):5d6723eeb
+NOTICE:  BL31: Built : 15:05:59, Mar 17 2020
+NOTICE:  BL31: G12A normal boot!
+NOTICE:  BL31: BL33 decompress pass
+ERROR:   Error initializing runtime service opteed_fast
+
+
+U-Boot 2015.01-g3f93e96a99-dirty (Oct 12 2020 - 14:46:58)
+
+DRAM:  3.8 GiB
+Relocation Offset is: d6d6f000
+mmu cfg end: 0xe0000000
+mmu cfg end: 0xe0000000
+spi_post_bind(spifc): req_seq = 0
+register usb cfg[0][1] = 00000000d7e97700
+NAND:  get_sys_clk_rate_mtd() 292, clock setting 200!
+bus cycle0: 6,timing: 7
+NAND device id: 0 ff ff ff ff ff 
+No NAND device found!!!
+nand init failed: -6
+get_sys_clk_rate_mtd() 292, clock setting 200!
+bus cycle0: 6,timing: 7
+NAND device id: 0 ff ff ff ff ff 
+No NAND device found!!!
+nand init failed: -6
+MMC:   aml_priv->desc_buf = 0x00000000d3d5fa70
+aml_priv->desc_buf = 0x00000000d3d61db0
+SDIO Port B: 0, SDIO Port C: 1
+co-phase 0x3, tx-dly 0, clock 400000
+co-phase 0x3, tx-dly 0, clock 400000
+co-phase 0x3, tx-dly 0, clock 400000
+emmc/sd response timeout, cmd8, cmd->cmdarg=0x1aa, status=0x1ff2800
+emmc/sd response timeout, cmd55, cmd->cmdarg=0x0, status=0x1ff2800
+co-phase 0x3, tx-dly 0, clock 400000
+co-phase 0x3, tx-dly 0, clock 40000000
+[set_emmc_calc_fixed_adj][875]find fixed adj_delay=20
+init_part() 297: PART_TYPE_AML
+[mmc_init] mmc init success
+      Amlogic multi-dtb tool
+      GZIP format, decompress...
+      Multi dtb detected
+aaaa ddf rize is e0000000
+aaaa  read eth phy gpio value  1 
+      Multi dtb tool version: v2 .
+      Support 8 dtbs.
+        aml_dt soc: sm1 platform: ac214 variant: 4g-1000M
+        dtb 0 soc: g12a   plat: u212   vari: 2g
+        dtb 1 soc: g12a   plat: u212   vari: 2g-1000M
+        dtb 2 soc: g12a   plat: u212   vari: 4g
+        dtb 3 soc: g12a   plat: u212   vari: 4g-1000M
+        dtb 4 soc: sm1   plat: ac214   vari: 2g
+        dtb 5 soc: sm1   plat: ac214   vari: 2g-1000M
+        dtb 6 soc: sm1   plat: ac214   vari: 4g
+        dtb 7 soc: sm1   plat: ac214   vari: 4g-1000M
+      Find match dtb: 7
+start dts,buffer=00000000d3d64620,dt_addr=00000000d3d64620
+get_partition_from_dts() 92: ret 0
+      Amlogic multi-dtb tool
+      Single dtb detected
+parts: 17
+00:      logo0000000000800000 1
+01:  recovery0000000001800000 1
+02:      misc0000000000800000 1
+03:      dtbo0000000000800000 1
+04:  cri_data0000000000800000 2
+05:     param0000000001000000 2
+06:      boot0000000001000000 1
+set has_boot_slot = 0
+07:       rsv0000000001000000 1
+08:  metadata0000000001000000 1
+09:    vbmeta0000000000200000 1
+10:       tee0000000002000000 1
+11:    vendor0000000014000000 1
+12:       odm0000000008000000 1
+13:    system0000000080000000 1
+14:   product0000000008000000 1
+15:     cache0000000046000000 2
+16:      dataffffffffffffffff 4
+init_part() 297: PART_TYPE_AML
+eMMC/TSD partition table have been checked OK!
+crc32_s:0x1577dad == storage crc_pattern:0x1577dad!!!
+crc32_s:0xee152b83 == storage crc_pattern:0xee152b83!!!
+crc32_s:0x79f50f07 == storage crc_pattern:0x79f50f07!!!
+mmc env offset: 0x4d400000 
+In:    serial
+Out:   serial
+Err:   serial
+reboot_mode=cold_boot
+[store]To run cmd[emmc dtb_read 0x1000000 0x40000]
+_verify_dtb_checksum()-3476: calc de30cc2a, store de30cc2a
+_verify_dtb_checksum()-3476: calc de30cc2a, store de30cc2a
+dtb_read()-3691: total valid 2
+update_old_dtb()-3672: do nothing
+      Amlogic multi-dtb tool
+      GZIP format, decompress...
+      Multi dtb detected
+aaaa ddf rize is e0000000
+aaaa  read eth phy gpio value  1 
+      Multi dtb tool version: v2 .
+      Support 8 dtbs.
+        aml_dt soc: sm1 platform: ac214 variant: 4g-1000M
+        dtb 0 soc: g12a   plat: u212   vari: 2g
+        dtb 1 soc: g12a   plat: u212   vari: 2g-1000M
+        dtb 2 soc: g12a   plat: u212   vari: 4g
+        dtb 3 soc: g12a   plat: u212   vari: 4g-1000M
+        dtb 4 soc: sm1   plat: ac214   vari: 2g
+        dtb 5 soc: sm1   plat: ac214   vari: 2g-1000M
+        dtb 6 soc: sm1   plat: ac214   vari: 4g
+        dtb 7 soc: sm1   plat: ac214   vari: 4g-1000M
+      Find match dtb: 7
+amlkey_init() enter!
+[EFUSE_MSG]keynum is 4
+vpu: driver version: v20190313
+vpu: detect chip type: 11
+vpu: clk_level default: 7(666667000Hz), max: 7(666667000Hz)
+vpu: clk_level in dts: 7
+vpu: vpu_power_on
+vpu: set_vpu_clk
+vpu: set clk: 666667000Hz, readback: 666666667Hz(0x100)
+vpu: set_vpu_clk finish
+vpu: vpu_module_init_config
+vpp: vpp_init
+vpp: vpp osd2 matrix rgb2yuv..............
+hdr_func 4, hdr_process_select 0x1
+cvbs: cpuid:0x2b
+cvbs: find performance_pal config
+[fd650]load dev from dts
+[fd628]load dev from dts
+[fd628]not find /fd628_dev node: FDT_ERR_NOTFOUND
+Net:   dwmac.ff3f0000amlkey_init() enter!
+amlkey_init() 71: already init!
+[EFUSE_MSG]keynum is 4
+
+CONFIG_AVB2: null 
+Start read misc partition datas!
+info->magic = 
+info->version_major = 1
+info->version_minor = 0
+info->slots[0].priority = 15
+info->slots[0].tries_remaining = 7
+info->slots[0].successful_boot = 0
+info->slots[1].priority = 14
+info->slots[1].tries_remaining = 7
+info->slots[1].successful_boot = 0
+info->crc32 = -1075449479
+active slot = 0
+wipe_data=successful
+wipe_cache=successful
+upgrade_step=2
+reboot_mode:::: cold_boot
+s_version: U-Boot 2015.01-g3f93e96a99-dirty
+amlkey_init() enter!
+amlkey_init() 71: already init!
+[EFUSE_MSG]keynum is 4
+[KM]Error:f[key_manage_query_size]L515:key[usid] not programed yet
+input mac is  06:62:01:10:bf:f9 
+get usid is  20110bff9 
+[KM]Error:f[key_manage_query_size]L515:key[deviceid] not programed yet
+[KM]Error:f[keymanage_dts_get_key_device]L105:region_code key name is not exist
+[KM]Error:f[_get_km_ops_by_name]L240:key region_code not know device 4
+[KM]Error:f[key_manage_query_exist]L554:There isn't dts cfg for key[region_code]
+[KM]Error:f[key_manage_query_size]L511:Fail in query key exist
+[KM]Error:f[keymanage_dts_get_key_device]L105:oemkey key name is not exist
+[KM]Error:f[_get_km_ops_by_name]L240:key oemkey not know device 4
+[KM]Error:f[key_manage_query_exist]L554:There isn't dts cfg for key[oemkey]
+[KM]Error:f[key_manage_query_size]L511:Fail in query key exist
+hpd_state=1
+do_hpd_detect: hdmimode=1080p60hz
+do_hpd_detect: colorattribute=444,8bit
+hdmitx: edid: change preferred_mode from 16 to 0
+sink preferred_mode is <NULL>[0]
+hdr mode is 0
+dv  mode is ver:0  len: 0
+hdr10+ mode is 0
+hdmitx: edid: change preferred_mode from 16 to 0
+read hdmichecksum 0x01000000, colorattribute 444,8bit
+read hdmimode 1080p60hz, colorspace <NULL>, colordepth <NULL>
+do_get_parse_edid: autoMode = false, manualMode=16
+isYuv4kSink: false, maxTMDSRate=150
+do_get_parse_edid: non-yuv4k sink: inColorSpace: HDMI_COLOR_FORMAT_RGB
+do_get_parse_edid: default inColorDepth: HDMI_COLOR_DEPTH_24B
+TV is same, initial mode is: 1080p60hz attr: 444,8bit
+dolby_status 0
+dolby_status 0
+dolby_vision_process: hpd: dv disabled
+Saving Environment to aml-storage...
+mmc env offset: 0x4d400000 
+Writing to MMC(1)... done
+[OSD]load fb addr from dts:/meson-fb
+[OSD]load fb addr from dts:/fb
+[OSD]set initrd_high: 0x7f800000
+[OSD]fb_addr for logo: 0x7f800000
+[OSD]load fb addr from dts:/meson-fb
+[OSD]load fb addr from dts:/fb
+[OSD]fb_addr for logo: 0x7f800000
+[OSD]VPP_OFIFO_SIZE:0xfff01fff
+[CANVAS]canvas init
+[CANVAS]addr=0x7f800000 width=3840, height=2160
+[OSD]osd_hw.free_dst_data: 0,1919,0,1079
+[OSD]osd1_update_disp_freescale_enable
+cvbs: outputmode[1080p60hz] is invalid
+vpp: vpp_matrix_update: 2
+set hdmitx VIC = 16
+aml_audio_init
+config HPLL = 5940000 frac_rate = 1
+HPLL: 0x3b3a04f7
+HPLL: 0x1b3a04f7
+HPLLv1: 0xdb3a04f7
+config HPLL done
+j = 6  vid_clk_div = 1
+hdmitx: set enc for VIC: 16
+hdmitx phy setting done
+rx version is 2.0  div=10
+hdmtix: set audio
+hdmi_tx_set: save mode: 1080p60hz, attr: 444,8bit, hdmichecksum: 0x01000000
+dolby_status 0
+dolby_status 0
+hdr_packet
+vpp: hdr_policy = 0
+vpp: Rx hdr_info.hdr_sup_eotf_smpte_st_2084 = 0
+s_version: U-Boot 2015.01-g3f93e96a99-dirty
+amlkey_init() enter!
+amlkey_init() 71: already init!
+[EFUSE_MSG]keynum is 4
+[KM]Error:f[key_manage_query_size]L515:key[usid] not programed yet
+input mac is  06:62:01:10:bf:f9 
+get usid is  20110bff9 
+[KM]Error:f[key_manage_query_size]L515:key[deviceid] not programed yet
+[KM]Error:f[keymanage_d.extquery_exist]L554:There isn't dts cfg for key[region_code]
+[KM]Error:f[key_manage_query_size]L511:Fail in query key exist
+[KM]Error:f[keymanage_dts_get_key_device]L105:oemkey key name is not exist
+[KM]Error:f[_get_km_ops_by_name]L240:key oemkey not know device 4
+[KM]Error:f[key_manage_query_exist]L554:There isn't dts cfg for key[oemkey]
+[KM]Error:f[key_manage_query_size]L511:Fail in query key exist
+gpio: pin GPIOAO_3 (gpio 3) value is 1
+time_out = f4240
+key[0] = 454040
+key[1] = 497f80
+key[2] = 4cfe01
+irkey - irkey <timeout> <key1> ...<keyN> - maximum value of N: 10
+
+Usage:
+irkey - No additional help available.
+Command: bcb uboot-command 
+Start read misc partition datas!
+get bootloader message from misc partition:
+[commannd:bootonce-bootloader]
+[status:]
+[recovery:]
+command mark(uboot-command) not match bootonce-bootloader,don't execute.
+InUsbBurn
+wait for phy ready count is 0
+noSof
+sof timeout, reset usb phy tuning
+s_version: U-Boot 2015.01-g3f93e96a99-dirty
+amlkey_init() enter!
+amlkey_init() 71: already init!
+[EFUSE_MSG]keynum is 4
+[KM]Error:f[key_manage_query_size]L515:key[usid] not programed yet
+input mac is  06:62:01:10:bf:f9 
+get usid is  20110bff9 
+[KM]Error:f[key_manage_query_size]L515:key[deviceid] not programed yet
+[KM]Error:f[keymanage_dts_get_key_device]L105:region_code key name is not exist
+[KM]Error:f[_get_km_ops_by_name]L240:key region_code not know device 4
+[KM]Error:f[key_manage_query_exist]L554:There isn't dts cfg for key[region_code]
+[KM]Error:f[key_manage_query_size]L511:Fail in query key exist
+[KM]Error:f[keymanage_dts_get_key_device]L105:oemkey key name is not exist
+[KM]Error:f[_get_km_ops_by_name]L240:key oemkey not know device 4
+[KM]Error:f[key_manage_query_exist]L554:There isn't dts cfg for key[oemkey]
+[KM]Error:f[key_manage_query_size]L511:Fail in query key exist
+Hit Enter or space or Ctrl+C key to stop autoboot -- :  1  0 
+sm1_ac214_v1#

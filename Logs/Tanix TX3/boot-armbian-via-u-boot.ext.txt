@@ -1,0 +1,657 @@
+.......
+
+U-Boot 2021.07-rc3-00183-gd6e1cdad51-dirty (May 31 2021 - 22:33:28 +0800) x96-max-plus
+
+Model: AMedia X96 Max+
+SoC:   Amlogic Meson SM1 (Unknown) Revision 2b:b (1:2)
+DRAM:  3.8 GiB
+MMC:   sd@ffe03000: 0, sd@ffe05000: 1, mmc@ffe07000: 2
+Loading Environment from nowhere... OK
+In:    serial
+Out:   serial
+Err:   serial
+Net:   eth0: ethernet@ff3f0000
+Hit any key to stop autoboot:  2  1  0 
+starting USB...
+Bus usb@ff500000: Register 3000140 NbrPorts 3
+Starting the controller
+USB XHCI 1.10
+scanning bus usb@ff500000 for devices... 3 USB Device(s) found
+       scanning usb for storage devices... 0 Storage Device(s) found
+
+Device 0: unknown device
+Card did not respond to voltage select! : -110
+switch to partitions #0, OK
+mmc1 is current device
+Scanning mmc 1:1...
+Found U-Boot script /boot.scr
+1123 bytes read in 11 ms (99.6 KiB/s)
+## Executing script at 08000000
+Start AMLOGIC mainline U-boot
+## Error: "bootfromsd" not defined
+Couldn't find partition usb 0
+Couldn't find partition usb 1
+Couldn't find partition usb 2
+Couldn't find partition usb 3
+348 bytes read in 13 ms (25.4 KiB/s)
+## Error: "mac" not defined
+## Error: "eth_mac" not defined
+ethaddr=xx:xx:xx:xx:xx:xx
+25854464 bytes read in 2235 ms (11 MiB/s)
+7225537 bytes read in 634 ms (10.9 MiB/s)
+72652 bytes read in 40 ms (1.7 MiB/s)
+Moving Image from 0x8080000 to 0x8200000, end=9b90000
+## Loading init Ramdisk from Legacy Image at 13000000 ...
+   Image Name:   uInitrd
+   Image Type:   AArch64 Linux RAMDisk Image (gzip compressed)
+   Data Size:    7225473 Bytes = 6.9 MiB
+   Load Address: 00000000
+   Entry Point:  00000000
+   Verifying Checksum ... OK
+## Flattened Device Tree blob at 08008000
+   Booting using the fdt blob at 0x8008000
+   Loading Ramdisk to 3f91b000, end 3ffff081 ... OK
+   Loading Device Tree to 000000003f906000, end 000000003f91abcb ... OK
+
+Starting kernel ...
+
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x411fd050]
+[    0.000000] Linux version 5.15.23-flippy-69+ (root@univm25) (Ubuntu clang version 13.0.0-9, Ubuntu LLD 13.0.0) #61 SMP PREEMPT Fri Feb 11 19:32:33 CST 2022
+[    0.000000] Machine model: AMedia X96 Max+ (eth0 speed:100Mb/s)
+[    0.000000] efi: UEFI not found.
+[    0.000000] Reserved memory: created CMA memory pool at 0x00000000e5000000, size 256 MiB
+[    0.000000] OF: reserved mem: initialized node linux,cma, compatible id shared-dma-pool
+[    0.000000] Zone ranges:
+[    0.000000]   DMA      [mem 0x0000000000000000-0x00000000f4ffffff]
+[    0.000000]   DMA32    empty
+[    0.000000]   Normal   empty
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000000000000-0x0000000004ffffff]
+[    0.000000]   node   0: [mem 0x0000000005000000-0x00000000052fffff]
+[    0.000000]   node   0: [mem 0x0000000005300000-0x00000000f4ffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000000000000-0x00000000f4ffffff]
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv1.0 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: MIGRATE_INFO_TYPE not supported.
+[    0.000000] psci: SMC Calling Convention v1.1
+[    0.000000] percpu: Embedded 19 pages/cpu s37336 r8192 d32296 u77824
+[    0.000000] Detected VIPT I-cache on CPU0
+[    0.000000] CPU features: detected: Virtualization Host Extensions
+[    0.000000] CPU features: detected: ARM errata 1165522, 1319367, or 1530923
+[    0.000000] alternatives: patching kernel code
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 987840
+[    0.000000] Kernel command line: root=UUID=6d5708ce-12b7-411c-aa52-df5b851ca550 rootflags=data=writeback rw console=ttyAML0,115200n8 console=tty0 no_console_suspend consoleblank=0 fsck.fix=yes fsck.repair=yes net.ifnames=0 cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory swapaccount=1 mac=72:6e:29:95:f6:67
+[    0.000000] Unknown kernel command line parameters "cgroup_enable=memory cgroup_memory=1 mac=72:6e:29:95:f6:67", will be passed to user space.
+[    0.000000] Dentry cache hash table entries: 524288 (order: 10, 4194304 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 262144 (order: 9, 2097152 bytes, linear)
+[    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
+[    0.000000] Memory: 3645172K/4014080K available (14720K kernel code, 2656K rwdata, 5684K rodata, 2048K init, 880K bss, 106764K reserved, 262144K cma-reserved)
+[    0.000000] random: get_random_u64 called from kmem_cache_open+0x28/0x534 with crng_init=0
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] rcu: Preemptible hierarchical RCU implementation.
+[    0.000000] rcu: RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=4.
+[    0.000000] Trampoline variant of Tasks RCU enabled.
+[    0.000000] Tracing variant of Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 30 jiffies.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] Root IRQ handler: gic_handle_irq
+[    0.000000] GIC: Using split EOI/Deactivate mode
+[    0.000000] irq_meson_gpio: 100 to 8 gpio interrupt mux initialized
+[    0.000000] arch_timer: cp15 timer(s) running at 24.00MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x588fe9dc0, max_idle_ns: 440795202592 ns
+[    0.000001] sched_clock: 56 bits at 24MHz, resolution 41ns, wraps every 4398046511097ns
+[    0.000270] Console: colour dummy device 80x25
+[    0.000680] printk: console [tty0] enabled
+[    0.000759] Calibrating delay loop (skipped), value calculated using timer frequency.. 48.00 BogoMIPS (lpj=80000)
+[    0.000787] pid_max: default: 32768 minimum: 301
+[    0.000897] LSM: Security Framework initializing
+[    0.000989] SELinux:  Initializing.
+[    0.001146] Mount-cache hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    0.001180] Mountpoint-cache hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    0.003239] rcu: Hierarchical SRCU implementation.
+[    0.004650] EFI services will not be available.
+[    0.005054] smp: Bringing up secondary CPUs ...
+[    0.005981] Detected VIPT I-cache on CPU1
+[    0.006050] CPU1: Booted secondary processor 0x0000000100 [0x411fd050]
+[    0.007062] Detected VIPT I-cache on CPU2
+[    0.007105] CPU2: Booted secondary processor 0x0000000200 [0x411fd050]
+[    0.008033] Detected VIPT I-cache on CPU3
+[    0.008073] CPU3: Booted secondary processor 0x0000000300 [0x411fd050]
+[    0.008167] smp: Brought up 1 node, 4 CPUs
+[    0.008237] SMP: Total of 4 processors activated.
+[    0.008251] CPU features: detected: 32-bit EL0 Support
+[    0.008262] CPU features: detected: 32-bit EL1 Support
+[    0.008275] CPU features: detected: Data cache clean to the PoU not required for I/D coherence
+[    0.008292] CPU features: detected: Common not Private translations
+[    0.008303] CPU features: detected: CRC32 instructions
+[    0.008316] CPU features: detected: RCpc load-acquire (LDAPR)
+[    0.008328] CPU features: detected: Privileged Access Never
+[    0.008340] CPU features: detected: RAS Extension Support
+[    0.009702] CPU: All CPU(s) started at EL2
+[    0.020980] devtmpfs: initialized
+[    0.037313] Registered cp15_barrier emulation handler
+[    0.037351] Registered setend emulation handler
+[    0.037515] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 6370867519511994 ns
+[    0.037550] futex hash table entries: 1024 (order: 4, 65536 bytes, linear)
+[    0.046493] prandom: seed boundary self test passed
+[    0.048073] prandom: 100 self tests passed
+[    0.071930] prandom32: self test passed (less than 6 bits correlated)
+[    0.071995] pinctrl core: initialized pinctrl subsystem
+[    0.072783] DMI not present or invalid.
+[    0.073086] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.074974] DMA: preallocated 512 KiB GFP_KERNEL pool for atomic allocations
+[    0.075194] DMA: preallocated 512 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+[    0.075480] DMA: preallocated 512 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+[    0.075574] audit: initializing netlink subsys (disabled)
+[    0.075766] audit: type=2000 audit(0.063:1): state=initialized audit_enabled=0 res=1
+[    0.077254] thermal_sys: Registered thermal governor 'step_wise'
+[    0.077937] cpuidle: using governor ladder
+[    0.078126] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[    0.078274] ASID allocator initialised with 65536 entries
+[    0.078442] Serial: AMBA PL011 UART driver
+[    0.104214] platform ff900000.vpu: Fixing up cyclic dependency with ff600000.hdmi-tx
+[    0.113335] platform cvbs-connector: Fixing up cyclic dependency with ff900000.vpu
+[    0.113681] platform hdmi-connector: Fixing up cyclic dependency with ff600000.hdmi-tx
+[    0.125904] HugeTLB registered 1.00 GiB page size, pre-allocated 0 pages
+[    0.125942] HugeTLB registered 32.0 MiB page size, pre-allocated 0 pages
+[    0.125958] HugeTLB registered 2.00 MiB page size, pre-allocated 0 pages
+[    0.125974] HugeTLB registered 64.0 KiB page size, pre-allocated 0 pages
+[    1.685755] cryptd: max_cpu_qlen set to 1000
+[    1.689587] "cryptomgr_test" (94) uses obsolete ecb(arc4) skcipher
+[    1.701285] alg: No test for 842 (842-generic)
+[    1.701442] alg: No test for 842 (842-scomp)
+[    1.801808] DRBG: Continuing without Jitter RNG
+[    1.885642] raid6: neonx8   gen()  2173 MB/s
+[    1.942405] raid6: neonx8   xor()  1632 MB/s
+[    1.999182] raid6: neonx4   gen()  2071 MB/s
+[    2.055944] raid6: neonx4   xor()  1545 MB/s
+[    2.112738] raid6: neonx2   gen()  1905 MB/s
+[    2.169488] raid6: neonx2   xor()  1455 MB/s
+[    2.226286] raid6: neonx1   gen()  1609 MB/s
+[    2.283030] raid6: neonx1   xor()  1235 MB/s
+[    2.339823] raid6: int64x8  gen()  1436 MB/s
+[    2.396612] raid6: int64x8  xor()   768 MB/s
+[    2.453354] raid6: int64x4  gen()  1552 MB/s
+[    2.510116] raid6: int64x4  xor()   845 MB/s
+[    2.566885] raid6: int64x2  gen()  1344 MB/s
+[    2.623641] raid6: int64x2  xor()   745 MB/s
+[    2.680426] raid6: int64x1  gen()  1012 MB/s
+[    2.737173] raid6: int64x1  xor()   578 MB/s
+[    2.737189] raid6: using algorithm neonx8 gen() 2173 MB/s
+[    2.737203] raid6: .... xor() 1632 MB/s, rmw enabled
+[    2.737218] raid6: using neon recovery algorithm
+[    2.737404] fbcon: Taking over console
+[    2.738915] VDDAO_3V3: supplied by DC_IN
+[    2.739335] VDDIO_AO1V8: supplied by VDDAO_3V3
+[    2.739822] iommu: Default domain type: Translated 
+[    2.739840] iommu: DMA domain TLB invalidation policy: strict mode 
+[    2.740224] vgaarb: loaded
+[    2.740747] SCSI subsystem initialized
+[    2.741018] usbcore: registered new interface driver usbfs
+[    2.741079] usbcore: registered new interface driver hub
+[    2.741130] usbcore: registered new device driver usb
+[    2.741657] mc: Linux media interface: v0.10
+[    2.741702] videodev: Linux video capture interface: v2.00
+[    2.742005] EDAC MC: Ver: 3.0.0
+[    2.743186] Advanced Linux Sound Architecture Driver Initialized.
+[    2.744404] clocksource: Switched to clocksource arch_sys_counter
+[    2.744727] VFS: Disk quotas dquot_6.6.0
+[    2.744814] VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[    2.744978] FS-Cache: Loaded
+[    2.753868] NET: Registered PF_INET protocol family
+[    2.754124] IP idents hash table entries: 65536 (order: 7, 524288 bytes, linear)
+[    2.756093] tcp_listen_portaddr_hash hash table entries: 2048 (order: 3, 32768 bytes, linear)
+[    2.756154] TCP established hash table entries: 32768 (order: 6, 262144 bytes, linear)
+[    2.756398] TCP bind hash table entries: 32768 (order: 7, 524288 bytes, linear)
+[    2.756834] TCP: Hash tables configured (established 32768 bind 32768)
+[    2.757119] MPTCP token hash table entries: 4096 (order: 4, 98304 bytes, linear)
+[    2.757222] UDP hash table entries: 2048 (order: 4, 65536 bytes, linear)
+[    2.757294] UDP-Lite hash table entries: 2048 (order: 4, 65536 bytes, linear)
+[    2.757522] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    2.757570] NET: Registered PF_XDP protocol family
+[    2.757596] PCI: CLS 0 bytes, default 64
+[    2.757949] Trying to unpack rootfs image as initramfs...
+[    2.768413] kvm [1]: IPA Size Limit: 40 bits
+[    2.771201] kvm [1]: vgic interrupt IRQ9
+[    2.771447] kvm [1]: VHE mode initialized successfully
+[    3.248288] Freeing initrd memory: 7056K
+[    3.483409] Initialise system trusted keyrings
+[    3.483637] workingset: timestamp_bits=46 max_order=20 bucket_order=0
+[    3.491604] zbud: loaded
+[    3.493874] fuse: init (API version 7.34)
+[    3.494472] SGI XFS with ACLs, security attributes, quota, no debug enabled
+[    3.534920] NET: Registered PF_ALG protocol family
+[    3.585195] xor: measuring software checksum speed
+[    3.589004]    8regs           :  2616 MB/sec
+[    3.592409]    32regs          :  2915 MB/sec
+[    3.597161]    arm64_neon      :  2081 MB/sec
+[    3.597177] xor: using function: 32regs (2915 MB/sec)
+[    3.597195] Key type asymmetric registered
+[    3.597208] Asymmetric key parser 'x509' registered
+[    3.597306] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 245)
+[    3.597454] io scheduler mq-deadline registered
+[    3.597471] io scheduler kyber registered
+[    3.597637] io scheduler bfq registered
+[    3.672410] soc soc0: Amlogic Meson SM1 (Unknown) Revision 2b:b (1:2) Detected
+[    3.674004] VDDCPU: supplied by regulator-dummy
+[    3.675609] Serial: 8250/16550 driver, 5 ports, IRQ sharing enabled
+[    3.677684] Serial: AMBA driver
+[    3.678154] ff803000.serial: ttyAML0 at MMIO 0xff803000 (irq = 22, base_baud = 1500000) is a meson_uart
+[    4.716430] printk: console [ttyAML0] enabled
+[    4.721491] ffd24000.serial: ttyAML6 at MMIO 0xffd24000 (irq = 28, base_baud = 1500000) is a meson_uart
+[    4.730204] serial serial0: tty port ttyAML6 registered
+[    4.745704] brd: module loaded
+[    4.750156] loop: module loaded
+[    4.758162] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    4.759087] ehci-pci: EHCI PCI platform driver
+[    4.763549] ehci-platform: EHCI generic platform driver
+[    4.769215] usbcore: registered new interface driver cdc_wdm
+[    4.774316] usbcore: registered new interface driver usb-storage
+[    4.780741] mousedev: PS/2 mouse device common for all mice
+[    4.786766] SPI driver rmi4_spi has no spi_device_id for syna,rmi4-spi
+[    4.793006] meson-vrtc ff8000a8.rtc: registered as rtc0
+[    4.797401] meson-vrtc ff8000a8.rtc: setting system clock to 1970-01-01T00:00:04 UTC (4)
+[    4.805903] i2c_dev: i2c /dev entries driver
+[    4.811903] debugfs: Directory 'ff800280.cec' with parent 'regmap' already present!
+[    4.817650] Registered IR keymap rc-cec
+[    4.821139] rc rc0: meson_g12a_ao_cec as /devices/platform/soc/ff800000.bus/ff800280.cec/rc/rc0
+[    4.829809] input: meson_g12a_ao_cec as /devices/platform/soc/ff800000.bus/ff800280.cec/rc/rc0/input0
+[    4.846768] Synopsys Designware Multimedia Card Interface Driver
+[    4.849671] meson-gx-mmc ffe05000.sd: Got CD GPIO
+[    4.849780] meson-gx-mmc ffe03000.sd: allocated mmc-pwrseq
+[    4.850671] meson-sm: secure-monitor enabled
+[    4.851630] hid: raw HID events driver (C) Jiri Kosina
+[    4.851727] usbcore: registered new interface driver usbhid
+[    4.851733] usbhid: USB HID core driver
+[    4.856229] Initializing XFRM netlink socket
+[    4.882614] NET: Registered PF_INET6 protocol family
+[    4.907266] gpio irq setup: hwirq: 0x3B irqfirst: 0x35 irqlast: 0x3C pin[47]
+[    4.917294] Segment Routing with IPv6
+[    4.917400] RPL Segment Routing with IPv6
+[    4.919595] In-situ OAM (IOAM) with IPv6
+[    4.923507] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    4.933796] bpfilter: Loaded bpfilter_umh pid 305
+[    4.934680] NET: Registered PF_PACKET protocol family
+[    4.938871] NET: Registered PF_KEY protocol family
+[    4.945558] 8021q: 802.1Q VLAN Support v1.8
+[    4.948084] registered taskstats version 1
+[    4.951805] Loading compiled-in X.509 certificates
+[    4.959594] zswap: loaded using pool zstd/zbud
+[    4.961455] Key type ._fscrypt registered
+[    4.964904] Key type .fscrypt registered
+[    4.968801] Key type fscrypt-provisioning registered
+[    4.973937] mmc1: new high speed SDHC card at address 1234
+[    4.974616] Btrfs loaded, crc32c=crc32c-generic, zoned=no, fsverity=no
+[    4.979592] mmcblk1: mmc1:1234 SA16G 14.6 GiB 
+[    4.992355]  mmcblk1: p1 p2
+[    5.013309] AO_5V: supplied by DC_IN
+[    5.013698] EMMC_1V8: supplied by VDDAO_3V3
+[    5.015724] mali: supplied by AO_5V
+[    5.051152] random: fast init done
+[    5.052272] mmc0: new high speed SDIO card at address 0001
+[    5.109388] meson-drm ff900000.vpu: Queued 3 outputs on vpu
+[    5.134444] meson-dw-hdmi ff600000.hdmi-tx: Detected HDMI TX controller v2.01a with HDCP (meson_dw_hdmi_phy)
+[    5.139104] meson-dw-hdmi ff600000.hdmi-tx: registered DesignWare HDMI I2C bus driver
+[    5.147027] meson-drm ff900000.vpu: bound ff600000.hdmi-tx (ops meson_dw_hdmi_ops)
+[    5.156622] [drm] Initialized meson 1.0.0 20161109 for ff900000.vpu on minor 0
+[    5.218361] [drm] kms: can't enable cloning when we probably wanted to.
+[    5.386651] Console: switching to colour frame buffer device 240x67
+[    5.453000] meson-drm ff900000.vpu: [drm] fb0: mesondrmfb frame buffer device
+[    5.465773] meson8b-dwmac ff3f0000.ethernet: IRQ eth_wake_irq not found
+[    5.466891] meson8b-dwmac ff3f0000.ethernet: IRQ eth_lpi not found
+[    5.473259] meson8b-dwmac ff3f0000.ethernet: PTP uses main clock
+[    5.480293] meson8b-dwmac ff3f0000.ethernet: User ID: 0x11, Synopsys ID: 0x37
+[    5.486121] meson8b-dwmac ff3f0000.ethernet: DWMAC1000
+[    5.491232] meson8b-dwmac ff3f0000.ethernet: DMA HW capability register supported
+[    5.498636] meson8b-dwmac ff3f0000.ethernet: RX Checksum Offload Engine supported
+[    5.506053] meson8b-dwmac ff3f0000.ethernet: COE Type 2
+[    5.511228] meson8b-dwmac ff3f0000.ethernet: TX Checksum insertion supported
+[    5.518215] meson8b-dwmac ff3f0000.ethernet: Wake-Up On Lan supported
+[    5.524605] meson8b-dwmac ff3f0000.ethernet: Normal descriptors
+[    5.530466] meson8b-dwmac ff3f0000.ethernet: Ring mode enabled
+[    5.536248] meson8b-dwmac ff3f0000.ethernet: Enable RX Mitigation via HW Watchdog Timer
+[    5.546540] dwc3-meson-g12a ffe09000.usb: USB2 ports: 2
+[    5.549381] dwc3-meson-g12a ffe09000.usb: USB3 ports: 1
+[    5.557975] dwc2 ff400000.usb: supply vusb_d not found, using dummy regulator
+[    5.561722] dwc2 ff400000.usb: supply vusb_a not found, using dummy regulator
+[    5.568894] dwc2 ff400000.usb: EPs: 7, dedicated fifos, 712 entries in SPRAM
+[    5.577054] xhci-hcd xhci-hcd.3.auto: xHCI Host Controller
+[    5.581275] xhci-hcd xhci-hcd.3.auto: new USB bus registered, assigned bus number 1
+[    5.588813] xhci-hcd xhci-hcd.3.auto: hcc params 0x0228fe6c hci version 0x110 quirks 0x0000000000010010
+[    5.598041] xhci-hcd xhci-hcd.3.auto: irq 38, io mem 0xff500000
+[    5.604177] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 5.15
+[    5.612062] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    5.619211] usb usb1: Product: xHCI Host Controller
+[    5.624046] usb usb1: Manufacturer: Linux 5.15.23-flippy-69+ xhci-hcd
+[    5.630422] usb usb1: SerialNumber: xhci-hcd.3.auto
+[    5.635645] hub 1-0:1.0: USB hub found
+[    5.638996] hub 1-0:1.0: 2 ports detected
+[    5.643197] xhci-hcd xhci-hcd.3.auto: xHCI Host Controller
+[    5.648487] xhci-hcd xhci-hcd.3.auto: new USB bus registered, assigned bus number 2
+[    5.655968] xhci-hcd xhci-hcd.3.auto: Host supports USB 3.0 SuperSpeed
+[    5.662467] usb usb2: We don't know the algorithms for LPM for this host, disabling LPM.
+[    5.670582] usb usb2: New USB device found, idVendor=1d6b, idProduct=0003, bcdDevice= 5.15
+[    5.678639] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    5.685796] usb usb2: Product: xHCI Host Controller
+[    5.690625] usb usb2: Manufacturer: Linux 5.15.23-flippy-69+ xhci-hcd
+[    5.697008] usb usb2: SerialNumber: xhci-hcd.3.auto
+[    5.702124] hub 2-0:1.0: USB hub found
+[    5.705572] hub 2-0:1.0: 1 port detected
+[    5.711761] meson-gx-mmc ffe07000.mmc: allocated mmc-pwrseq
+[    5.860770] mmc2: new HS200 MMC card at address 0001
+[    5.882931] mmcblk2: mmc2:0001 SCA64G 57.7 GiB 
+[    5.888383] mmcblk2boot0: mmc2:0001 SCA64G 4.00 MiB 
+[    5.894031] mmcblk2boot1: mmc2:0001 SCA64G 4.00 MiB 
+[    5.897753] usb 1-2: new high-speed USB device number 2 using xhci-hcd
+[    5.897846] mmcblk2rpmb: mmc2:0001 SCA64G 4.00 MiB, chardev (240:0)
+[    5.923180] ALSA device list:
+[    5.926165]   No soundcards found.
+[    5.929833] Freeing unused kernel memory: 2048K
+[    5.944501] Run /init as init process
+[    6.044724] usb 1-2: New USB device found, idVendor=413c, idProduct=1010, bcdDevice= 1.00
+[    6.049722] usb 1-2: New USB device strings: Mfr=0, Product=1, SerialNumber=0
+[    6.056790] usb 1-2: Product: USB 2.0 Hub [MTT]
+[    6.110765] hub 1-2:1.0: USB hub found
+[    6.113398] hub 1-2:1.0: 4 ports detected
+[    6.457768] usb 1-2.4: new low-speed USB device number 3 using xhci-hcd
+[    6.558930] usb 1-2.4: New USB device found, idVendor=413c, idProduct=2110, bcdDevice=75.00
+[    6.564029] usb 1-2.4: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+[    6.571298] usb 1-2.4: Product: Dell Wired Multimedia Keyboard
+[    6.578065] usb 1-2.4: Manufacturer: Dell
+[    6.665449] input: Dell Dell Wired Multimedia Keyboard as /devices/platform/soc/ffe09000.usb/ff500000.usb/xhci-hcd.3.auto/usb1/1-2/1-2.4/1-2.4:1.0/0003:413C:2110.0001/input/input1
+[    6.742323] hid-generic 0003:413C:2110.0001: input,hidraw0: USB HID v1.10 Keyboard [Dell Dell Wired Multimedia Keyboard] on usb-xhci-hcd.3.auto-2.4/input0
+[    6.772915] input: Dell Dell Wired Multimedia Keyboard Mouse as /devices/platform/soc/ffe09000.usb/ff500000.usb/xhci-hcd.3.auto/usb1/1-2/1-2.4/1-2.4:1.1/0003:413C:2110.0002/input/input2
+[    6.789647] input: Dell Dell Wired Multimedia Keyboard System Control as /devices/platform/soc/ffe09000.usb/ff500000.usb/xhci-hcd.3.auto/usb1/1-2/1-2.4/1-2.4:1.1/0003:413C:2110.0002/input/input3
+[    6.866022] input: Dell Dell Wired Multimedia Keyboard Consumer Control as /devices/platform/soc/ffe09000.usb/ff500000.usb/xhci-hcd.3.auto/usb1/1-2/1-2.4/1-2.4:1.1/0003:413C:2110.0002/input/input4
+[    6.883967] hid-generic 0003:413C:2110.0002: input,hiddev96,hidraw1: USB HID v1.10 Mouse [Dell Dell Wired Multimedia Keyboard] on usb-xhci-hcd.3.auto-2.4/input1
+[    7.393513] EXT4-fs (mmcblk1p2): mounted filesystem with writeback data mode. Opts: data=writeback. Quota mode: none.
+[    8.751535] blk_update_request: I/O error, dev mmcblk1, sector 1351808 op 0x0:(READ) flags 0x80700 phys_seg 1 prio class 0
+[    9.739444] blk_update_request: I/O error, dev mmcblk1, sector 1343608 op 0x0:(READ) flags 0x80700 phys_seg 17 prio class 0
+[   11.073650] systemd[1]: System time before build time, advancing clock.
+[   11.415739] systemd[1]: systemd 245.4-4ubuntu3.15 running in system mode. (+PAM +AUDIT +SELINUX +IMA +APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ +LZ4 +SECCOMP +BLKID +ELFUTILS +KMOD +IDN2 -IDN +PCRE2 default-hierarchy=hybrid)
+[   11.445783] systemd[1]: Detected architecture arm64.
+[   11.540535] systemd[1]: Set hostname to <armbian>.
+[   13.588029] random: systemd: uninitialized urandom read (16 bytes read)
+[   13.597794] systemd[1]: Created slice system-modprobe.slice.
+[   13.607375] random: systemd: uninitialized urandom read (16 bytes read)
+[   13.614096] systemd[1]: Created slice system-serial\x2dgetty.slice.
+[   13.623457] random: systemd: uninitialized urandom read (16 bytes read)
+[   13.629813] systemd[1]: Created slice system-systemd\x2dfsck.slice.
+[   13.640085] systemd[1]: Created slice User and Session Slice.
+[   13.647239] systemd[1]: Condition check resulted in Dispatch Password Requests to Console Directory Watch when bootsplash is active being skipped.
+[   13.658408] systemd[1]: Started Forward Password Requests to Wall Directory Watch.
+[   13.669993] systemd[1]: Set up automount Arbitrary Executable File Formats File System Automount Point.
+[   13.681195] systemd[1]: Reached target Local Encrypted Volumes.
+[   13.688855] systemd[1]: Reached target Slices.
+[   13.696105] systemd[1]: Reached target Swap.
+[   13.703373] systemd[1]: Reached target System Time Set.
+[   13.727631] systemd[1]: Listening on RPCbind Server Activation Socket.
+[   13.738669] systemd[1]: Listening on Syslog Socket.
+[   13.747543] systemd[1]: Listening on fsck to fsckd communication Socket.
+[   13.757282] systemd[1]: Listening on initctl Compatibility Named Pipe.
+[   13.767040] systemd[1]: Listening on Journal Audit Socket.
+[   13.775251] systemd[1]: Listening on Journal Socket (/dev/log).
+[   13.783829] systemd[1]: Listening on Journal Socket.
+[   13.792193] systemd[1]: Listening on udev Control Socket.
+[   13.800285] systemd[1]: Listening on udev Kernel Socket.
+[   13.811682] systemd[1]: Mounting Huge Pages File System...
+[   13.823107] systemd[1]: Mounting POSIX Message Queue File System...
+[   13.835167] systemd[1]: Mounting RPC Pipe File System...
+[   13.846556] systemd[1]: Mounting Kernel Debug File System...
+[   13.854036] systemd[1]: Condition check resulted in Kernel Trace File System being skipped.
+[   13.895745] systemd[1]: Starting Restore / save the current clock...
+[   13.902719] RPC: Registered named UNIX socket transport module.
+[   13.902733] RPC: Registered udp transport module.
+[   13.902735] RPC: Registered tcp transport module.
+[   13.902737] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[   13.927174] systemd[1]: Starting Set the console keyboard layout...
+[   13.939125] systemd[1]: Starting Create list of static device nodes for the current kernel...
+[   13.950408] systemd[1]: Condition check resulted in Load Kernel Module drm being skipped.
+[   13.960561] systemd[1]: Started Nameserver information manager.
+[   13.968300] systemd[1]: Reached target Network (Pre).
+[   13.998285] systemd[1]: Condition check resulted in Set Up Additional Binary Formats being skipped.
+[   14.006472] systemd[1]: Condition check resulted in File System Check on Root Device being skipped.
+[   14.021318] systemd[1]: Starting Load Kernel Modules...
+[   14.032162] systemd[1]: Starting Remount Root and Kernel File Systems...
+[   14.044267] systemd[1]: Starting udev Coldplug all Devices...
+[   14.056518] systemd[1]: Mounted Huge Pages File System.
+[   14.064106] systemd[1]: Mounted POSIX Message Queue File System.
+[   14.064141] EXT4-fs (mmcblk1p2): re-mounted. Opts: errors=remount-ro. Quota mode: none.
+[   14.082269] systemd[1]: Mounted RPC Pipe File System.
+[   14.089424] systemd[1]: Mounted Kernel Debug File System.
+[   14.098670] systemd[1]: Finished Restore / save the current clock.
+[   14.108616] systemd[1]: Finished Create list of static device nodes for the current kernel.
+[   14.108984] usbcore: registered new interface driver r8152
+[   14.128369] systemd[1]: Finished Remount Root and Kernel File Systems.
+[   14.390129] usbcore: registered new interface driver ax88179_178a
+[   14.390733] systemd[1]: Condition check resulted in Rebuild Hardware Database being skipped.
+[   14.402503] systemd[1]: Condition check resulted in Platform Persistent Storage Archival being skipped.
+[   14.415721] systemd[1]: Starting Load/Save Random Seed...
+[   14.427614] systemd[1]: Starting Create System Users...
+[   14.439126] systemd[1]: Finished Set the console keyboard layout.
+[   14.451881] systemd[1]: Finished Load Kernel Modules.
+[   14.467705] systemd[1]: Mounting FUSE Control File System...
+[   14.480339] systemd[1]: Mounting Kernel Configuration File System...
+[   14.492672] systemd[1]: Starting Apply Kernel Variables...
+[   14.503045] systemd[1]: Mounted FUSE Control File System.
+[   14.510372] systemd[1]: Mounted Kernel Configuration File System.
+[   14.726465] systemd[1]: Finished udev Coldplug all Devices.
+[   14.749530] systemd[1]: Starting Helper to synchronize boot up for ifupdown...
+[   14.822114] systemd[1]: Finished Create System Users.
+[   14.836094] systemd[1]: Starting Create Static Device Nodes in /dev...
+[   14.848792] systemd[1]: Finished Apply Kernel Variables.
+[   14.898898] systemd[1]: Finished Create Static Device Nodes in /dev.
+[   14.910074] systemd[1]: Reached target Local File Systems (Pre).
+[   14.925263] systemd[1]: Mounting /var/tmp...
+[   14.936851] systemd[1]: Starting udev Kernel Device Manager...
+[   14.949736] systemd[1]: Mounted /var/tmp.
+[   15.144466] systemd[1]: Started udev Kernel Device Manager.
+[   15.266888] [drm] kms: can't enable cloning when we probably wanted to.
+[   15.403890] systemd[1]: Found device /dev/ttyAML0.
+[   15.447571] Registered IR keymap rc-x96max
+[   15.520367] IR NEC protocol handler initialized
+[   15.562720] debugfs: File 'Capture' in directory 'dapm' already present!
+[   15.567483] rc rc1: meson-ir as /devices/platform/soc/ff800000.bus/ff808000.ir/rc/rc1
+[   15.585274] rc rc1: lirc_dev: driver meson-ir registered at minor = 0, raw IR receiver, no transmitter
+[   15.608213] meson_vdec: module is from the staging directory, the quality is unknown, you have been warned.
+[   15.614444] input: meson-ir as /devices/platform/soc/ff800000.bus/ff808000.ir/rc/rc1/input5
+[   15.627127] meson-ir ff808000.ir: receiver initialized
+[   15.634287] systemd[1]: Condition check resulted in Dispatch Password Requests to Console Directory Watch when bootsplash is active being skipped.
+[   15.646480] systemd[1]: Condition check resulted in Kernel Trace File System being skipped.
+[   15.646615] panfrost ffe40000.gpu: clock rate = 24000000
+[   15.653998] systemd[1]: Condition check resulted in Set Up Additional Binary Formats being skipped.
+[   15.667754] systemd[1]: Condition check resulted in File System Check on Root Device being skipped.
+[   15.676794] systemd[1]: Condition check resulted in Rebuild Hardware Database being skipped.
+[   15.685077] systemd[1]: Condition check resulted in Platform Persistent Storage Archival being skipped.
+[   15.707161] panfrost ffe40000.gpu: mali-g31 id 0x7093 major 0x0 minor 0x0 status 0x0
+[   15.712484] panfrost ffe40000.gpu: features: 00000000,3fde77ff, issues: 00000000,00000400
+[   15.720693] panfrost ffe40000.gpu: Features: L2:0x07100206 Shader:0x00000000 Tiler:0x00000209 Mem:0x1 MMU:0x00002821 AS:0xff JS:0x7
+[   15.735253] panfrost ffe40000.gpu: shader_present=0x1 l2_present=0x1
+[   15.841991] [drm] Initialized panfrost 1.2.0 20180908 for ffe40000.gpu on minor 1
+[   16.098456] cfg80211: Loading compiled-in X.509 certificates for regulatory database
+[   16.149226] systemd[1]: Found device /dev/disk/by-label/BOOT.
+[   16.156660] systemd[1]: Condition check resulted in Dispatch Password Requests to Console Directory Watch when bootsplash is active being skipped.
+[   16.167703] systemd[1]: Listening on Load/Save RF Kill Switch Status /dev/rfkill Watch.
+[   16.179144] systemd[1]: Condition check resulted in Kernel Trace File System being skipped.
+[   16.185475] systemd[1]: Condition check resulted in Set Up Additional Binary Formats being skipped.
+[   16.188475] cfg80211: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+[   16.194296] systemd[1]: Condition check resulted in File System Check on Root Device being skipped.
+[   16.214763] systemd[1]: Starting File System Check on /dev/disk/by-label/BOOT...
+[   16.223713] systemd[1]: Condition check resulted in Rebuild Hardware Database being skipped.
+[   16.230135] systemd[1]: Condition check resulted in Platform Persistent Storage Archival being skipped.
+[   16.276228] systemd[1]: Started File System Check Daemon to report status.
+[   16.290044] systemd[1]: Found device /sys/subsystem/net/devices/eth0.
+[   16.329932] brcmfmac: brcmf_fw_alloc_request: using brcm/brcmfmac4330-sdio for chip BCM4330/4
+[   16.339476] brcmfmac mmc0:0001:1: Direct firmware load for brcm/brcmfmac4330-sdio.amlogic,sm1.bin failed with error -2
+[   16.370414] brcmfmac mmc0:0001:1: Direct firmware load for brcm/brcmfmac4330-sdio.amlogic,sm1.txt failed with error -2
+[   16.468546] random: crng init done
+[   16.471975] random: 7 urandom warning(s) missed due to ratelimiting
+[   16.539810] systemd[1]: Finished Load/Save Random Seed.
+[   16.632256] systemd[1]: Finished File System Check on /dev/disk/by-label/BOOT.
+[   16.652386] systemd[1]: Mounting /boot...
+[   16.691196] brcmfmac: brcmf_fw_alloc_request: using brcm/brcmfmac4330-sdio for chip BCM4330/4
+[   16.697964] brcmfmac: brcmf_c_process_clm_blob: no clm_blob available (err=-2), device may have limited channels available
+[   16.710763] systemd[1]: Mounted /boot.
+[   16.716168] brcmfmac: brcmf_c_preinit_dcmds: Firmware: BCM4330/4 wl0: Jan  6 2014 15:11:29 version 5.90.195.89.13 FWID 01-72f124c5
+[   16.732218] systemd[1]: Reached target Local File Systems.
+[   16.747105] systemd[1]: Starting Armbian ZRAM config...
+[   16.762541] systemd[1]: Starting Set console font and keymap...
+[   16.777648] systemd[1]: Started ifup for eth0.
+[   16.790415] systemd[1]: Starting Preprocess NFS configuration...
+[   16.803502] systemd[1]: Starting Mark the need to relabel after reboot...
+[   16.812644] systemd[1]: Condition check resulted in Store a System Token in an EFI Variable being skipped.
+[   16.820532] systemd[1]: Condition check resulted in Commit a transient machine-id on disk being skipped.
+[   16.838356] systemd[1]: nfs-config.service: Succeeded.
+[   16.844086] systemd[1]: Finished Preprocess NFS configuration.
+[   16.852880] systemd[1]: Condition check resulted in RPC security service for NFS client and server being skipped.
+[   16.861297] systemd[1]: Reached target NFS client services.
+[   16.875678] systemd[1]: Starting Load/Save RF Kill Switch Status...
+[   16.886737] systemd[1]: Finished Mark the need to relabel after reboot.
+[   17.037837] ieee80211 phy0: brcmf_construct_chaninfo: Ignoring unexpected firmware channel 184
+[   17.044362] ieee80211 phy0: brcmf_construct_chaninfo: Ignoring unexpected firmware channel 188
+[   17.052906] ieee80211 phy0: brcmf_construct_chaninfo: Ignoring unexpected firmware channel 192
+[   17.061922] ieee80211 phy0: brcmf_construct_chaninfo: Ignoring unexpected firmware channel 196
+[   17.070462] ieee80211 phy0: brcmf_construct_chaninfo: Ignoring unexpected firmware channel 200
+[   17.079012] ieee80211 phy0: brcmf_construct_chaninfo: Ignoring unexpected firmware channel 204
+[   17.087539] ieee80211 phy0: brcmf_construct_chaninfo: Ignoring unexpected firmware channel 208
+[   17.096077] ieee80211 phy0: brcmf_construct_chaninfo: Ignoring unexpected firmware channel 212
+[   17.104616] ieee80211 phy0: brcmf_construct_chaninfo: Ignoring unexpected firmware channel 216
+[   17.148181] usbcore: registered new interface driver brcmfmac
+[   17.276520] systemd[1]: Started Load/Save RF Kill Switch Status.
+[   17.395555] systemd[1]: Finished Helper to synchronize boot up for ifupdown.
+[   17.408455] systemd[1]: Starting Raise network interfaces...
+[   20.594633] zram: Added device: zram0
+[   20.599533] zram: Added device: zram1
+[   20.605337] zram: Added device: zram2
+[   21.563348] zram0: detected capacity change from 0 to 3916424
+[   21.653779] Adding 1958208k swap on /dev/zram0.  Priority:5 extents:1 across:1958208k SSFS
+[   21.863397] zram1: detected capacity change from 0 to 102400
+[   21.970688] zram2: detected capacity change from 0 to 3916424
+[   22.021186] meson8b-dwmac ff3f0000.ethernet eth0: PHY [0.0:00] driver [RTL8211F Gigabit Ethernet] (irq=39)
+[   22.030308] meson8b-dwmac ff3f0000.ethernet eth0: Register MEM_TYPE_PAGE_POOL RxQ-0
+[   22.044462] meson8b-dwmac ff3f0000.ethernet eth0: No Safety Features support found
+[   22.049495] meson8b-dwmac ff3f0000.ethernet eth0: PTP not supported by HW
+[   22.051195] EXT4-fs (zram2): mounted filesystem without journal. Opts: discard. Quota mode: none.
+[   22.064929] meson8b-dwmac ff3f0000.ethernet eth0: configuring for phy/rgmii-txid link mode
+[   22.088358] systemd[1]: Finished Armbian ZRAM config.
+[   22.100399] systemd[1]: Starting Armbian memory supported logging...
+[   22.181614] EXT4-fs (zram1): mounted filesystem without journal. Opts: discard. Quota mode: none.
+[   22.187839] ext4 filesystem being mounted at /var/log supports timestamps until 2038 (0x7fffffff)
+[   22.285588] systemd[1]: systemd-rfkill.service: Succeeded.
+[   24.098721] systemd[1]: Finished Armbian memory supported logging.
+[   24.111931] systemd[1]: Starting Journal Service...
+[   24.278849] systemd[1]: Started Journal Service.
+[   24.317086] systemd-journald[872]: Received client request to flush runtime journal.
+[   25.390910] meson8b-dwmac ff3f0000.ethernet eth0: Link is Up - 100Mbps/Full - flow control rx/tx
+[   25.396721] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+[   26.943887] blk_update_request: I/O error, dev mmcblk1, sector 1500224 op 0x0:(READ) flags 0x80700 phys_seg 2 prio class 0
+[   28.566882] blk_update_request: I/O error, dev mmcblk1, sector 1500344 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 0
+[   29.435557] blk_update_request: I/O error, dev mmcblk1, sector 1500344 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 0
+[   30.346559] blk_update_request: I/O error, dev mmcblk1, sector 1500344 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 0
+[   31.833817] blk_update_request: I/O error, dev mmcblk1, sector 1500344 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 0
+[   35.473814] blk_update_request: I/O error, dev mmcblk1, sector 704672 op 0x0:(READ) flags 0x3000 phys_seg 1 prio class 0
+[   35.482749] EXT4-fs error (device mmcblk1p2): __ext4_find_entry:1614: inode #2202: comm run-parts: reading directory lblock 0
+[   35.494059] Aborting journal on device mmcblk1p2-8.
+[   35.904922] EXT4-fs (mmcblk1p2): Remounting filesystem read-only
+[   36.068623] EXT4-fs error (device mmcblk1p2) in ext4_init_inode_table:1625: IO failure
+[   37.393837] blk_update_request: I/O error, dev mmcblk1, sector 1343840 op 0x0:(READ) flags 0x80700 phys_seg 33 prio class 0
+[   41.881084] ieee80211 phy0: brcmf_p2p_create_p2pdev: timeout occurred
+[   41.885672] ieee80211 phy0: brcmf_cfg80211_add_iface: add iface p2p-dev-wlan0 type 10 failed: err=-5
+
+
+armbian login: root (automatic login)
+
+
+    _              _        ___   ___  ____      _____ 
+   / \   _ __ ___ | |  ___ / _ \ / _ \| ___|_  _|___ / 
+  / _ \ | '_ ` _ \| | / __| (_) | | | |___ \ \/ / |_ \ 
+ / ___ \| | | | | | | \__ \\__, | |_| |___) >  < ___) |
+/_/   \_\_| |_| |_|_| |___/  /_/ \___/|____/_/\_\____/ 
+                                                       
+Welcome to Armbian 22.02.0-trunk Focal with Linux 5.15.23-flippy-69+
+
+No end-user support: built from trunk
+
+System load:   65%           Up time:       0 min
+Memory usage:  4% of 3.73G  IP:       192.168.168.185
+CPU temp:      33�C           Usage of /:    48% of 2.6G   
+
+[   55.175741] mmc_erase: erase error -110, status 0x0
+[   56.732724] mmc_erase: erase error -110, status 0x0
+[   58.974742] mmc_erase: erase error -110, status 0x0
+[   61.287745] mmc_erase: erase error -110, status 0x0
+[   63.522742] mmc_erase: erase error -110, status 0x0
+[   65.390741] mmc_erase: erase error -110, status 0x0
+[   67.624743] mmc_erase: erase error -110, status 0x0
+[   69.878753] mmc_erase: erase error -110, status 0x0
+[   72.048743] mmc_erase: erase error -110, status 0x0
+[   74.373746] mmc_erase: erase error -110, status 0x0
+[   76.611747] mmc_erase: erase error -110, status 0x0
+[   78.844743] mmc_erase: erase error -110, status 0x0
+root@armbian:~# 
+root@armbian:~# df
+Filesystem     1K-blocks    Used Available Use% Mounted on
+udev             1822584       0   1822584   0% /dev
+tmpfs             391644    5772    385872   2% /run
+/dev/mmcblk1p2   2719288 1285008   1417896  48% /
+tmpfs            1958208       0   1958208   0% /dev/shm
+tmpfs               5120       4      5116   1% /run/lock
+tmpfs            1958208       0   1958208   0% /sys/fs/cgroup
+/dev/zram2       1927444    5828   1807324   1% /var/tmp
+/dev/mmcblk1p1    248564  100688    147876  41% /boot
+/dev/zram1         49584    1016     44984   3% /var/log
+tmpfs             391640       0    391640   0% /run/user/0
+root@armbian:~# ls /dev
+autofs lirc0       ptmx    tty18  tty41  tty8     vcsa2
+block log       pts     tty19  tty42  tty9     vcsa3
+btrfs-control loop0       ram0    tty2   tty43  ttyAML0  vcsa4
+bus loop1       ram1    tty20  tty44  ttyS0    vcsa5
+cec0 loop2       ram2    tty21  tty45  ttyS1    vcsa6
+char loop3       ram3    tty22  tty46  ttyS2    vcsu
+console loop4       random  tty23  tty47  ttyS3    vcsu1
+cpu_dma_latency  loop5       rfkill  tty24  tty48  ttyS4    vcsu2
+cuse loop6       rtc     tty25  tty49  udmabuf  vcsu3
+disk loop7       rtc0    tty26  tty5   uhid     vcsu4
+dri loop-control  shm     tty27  tty50  uleds    vcsu5
+fb0 mapper        snd     tty28  tty51  urandom  vcsu6
+fd mem       stderr  tty29  tty52  usb      vga_arbiter
+full mmcblk1       stdin   tty3   tty53  usbmon0  vhci
+fuse mmcblk1p1     stdout  tty30  tty54  usbmon1  vhost-net
+gpiochip0 mmcblk1p2     tty     tty31  tty55  usbmon2  video0
+gpiochip1 mmcblk2       tty0    tty32  tty56  v4l      zero
+hidraw0 mmcblk2boot0  tty1    tty33  tty57  vcs      zram0
+hidraw1 mmcblk2boot1  tty10   tty34  tty58  vcs1     zram1
+hugepages mmcblk2rpmb   tty11   tty35  tty59  vcs2     zram2
+hwrng mqueue        tty12   tty36  tty6   vcs3
+i2c-0 net       tty13   tty37  tty60  vcs4
+initctl null       tty14   tty38  tty61  vcs5
+input port       tty15   tty39  tty62  vcs6
+kmsg ppp       tty16   tty4   tty63  vcsa
+kvm psaux       tty17   tty40  tty7   vcsa1
+
+root@armbian:~# ls -l /dev/disk/by-uuid/
+total 0
+lrwxrwxrwx 1 root root 15 Feb 12 21:18 6d5708ce-12b7-411c-aa52-df5b851ca550 -> ../../mmcblk1p2
+lrwxrwxrwx 1 root root 15 Feb 12 21:18 D7B2-1E19 -> ../../mmcblk1p1
+root@armbian:~# ls -l /dev/disk/by-uuid/id/
+total 0
+lrwxrwxrwx 1 root root 13 Feb 12 21:18 mmc-SA16G_0x24db50ff -> ../../mmcblk1
+lrwxrwxrwx 1 root root 15 Feb 12 21:18 mmc-SA16G_0x24db50ff-part1 -> ../../mmcblk1p1
+lrwxrwxrwx 1 root root 15 Feb 12 21:18 mmc-SA16G_0x24db50ff-part2 -> ../../mmcblk1p2
+lrwxrwxrwx 1 root root 13 Feb 12 21:18 mmc-SCA64G_0x0117000b -> ../../mmcblk2
+root@armbian:~# ls -l /dev/disk/by-id/path/
+total 0
+lrwxrwxrwx 1 root root 13 Feb 12 21:18 platform-ffe05000.sd -> ../../mmcblk1
+lrwxrwxrwx 1 root root 15 Feb 12 21:18 platform-ffe05000.sd-part1 -> ../../mmcblk1p1
+lrwxrwxrwx 1 root root 15 Feb 12 21:18 platform-ffe05000.sd-part2 -> ../../mmcblk1p2
+lrwxrwxrwx 1 root root 13 Feb 12 21:18 platform-ffe07000.mmc -> ../../mmcblk2
+lrwxrwxrwx 1 root root 18 Feb 12 21:18 platform-ffe07000.mmc-boot0 -> ../../mmcblk2boot0
+lrwxrwxrwx 1 root root 18 Feb 12 21:18 platform-ffe07000.mmc-boot1 -> ../../mmcblk2boot1
+root@armbian:~# ls -l /dev/disk/by-path/rtuuid/
+total 0
+lrwxrwxrwx 1 root root 15 Feb 12 21:18 21457580-01 -> ../../mmcblk1p1
+lrwxrwxrwx 1 root root 15 Feb 12 21:18 21457580-02 -> ../../mmcblk1p2
+root@armbian:~# 
