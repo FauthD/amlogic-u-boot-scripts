@@ -6,7 +6,7 @@ This is my attempt to understand the nasty boot details on these boxes.
 It is "Work in process" and by no means a tutorial in how to use U-Boot.
 
 # Caution
-It is your own responsibility if you damage something. Before you cary out an action, you should understand the details about what you do.
+It is your own responsibility if you damage something. Before you carry out an action, you should understand the details about what you do.
 # Logging
 To see what is going on, it is essential that you can see the log output of u-boot.
 Many boxes offer solder pads/holes marked with GND, TX, RX, VCC (or 3V). In my case the Tanix TX3 shows these 4 pads, so I soldered a 4 pin header into it and connected a USB-Serial adapter (FTDI): GND-GND, TX-RX, RX-TX. No connection on the VCC or 3V pin!
@@ -31,7 +31,8 @@ In case there is no button, sarch in the settings of the box (Android). With luc
 
 # Various operating systems
 The different operating systems use flavours of the above method to boot.
-Find the source es of the scripts in the sub directories. There are also bash scripts to translate the script sources (with extension.cmd) to the binary scripts.
+Find the sources of the scripts in the sub directories. There are also bash scripts to translate the script sources (with extension.cmd) to the binary scripts (either .scr or no extension).
+Files with .ini extension do not need to be translated, they work as text files.
 # LibreElec
 Uses 5 scripts:
 - aml_autoscript
@@ -94,4 +95,4 @@ Reseting the U-Boot environment with default values should help as well:
 # How to get sources of the scripts
 The executable scripts contain a binary header with a checksum followed by the text of the script. That allows to use a hex editor like ghex to extract the script text.
 
-Armbian contains the sources additionally to the binary versions. So there e it is easy to get them.
+Armbian contains the sources additionally to the binary versions. So there it is easy to get them.
