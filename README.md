@@ -42,8 +42,62 @@ Uses 5 scripts:
 ### for EMMC installation
 - emmc_autoscript
 
-Edit the uEnv.ini so it describes which kernel, initrd and dtb to use.
+Edit the uEnv.ini so it describes kernel boot parameter and dtb to use.
 A '#' marks a comment.
+The kernel always has the name KERNEL, no way to change without modifying s905_autoscript.
+## Steps to boot LibreElec
+### aml_autoscript
+The first script aml_autoscript runs when the so called reset button is pressed after power up ("Toothpick method).
+It's important actions:
+- set variable bootcmd to 'run start_autoscript'
+- set a few other variables for different boot details used by start_autoscript
+- save
+- reboot
+
+(This is very much the same as with Armbian)
+### s905_autoscript and emmc_autoscript
+At next power up, start_autoscript runs and either calls s905_autoscript (SD, USB), or emmc_autoscript. 
+It looks up kernel boot parameter and device tree from uEnv.txt and loads them into memory. Kernel has a fixed name KERNEL. Finally it calls the booti command to start the kernel.
+
+### boot.scr
+There is a boot.scr and boot.ini in the image, but it looks like they are not used.
+# CoreElec
+Uses 3 scripts:
+- aml_autoscript
+- cfgload
+- config.ini (I am not sure how this is loaded. Only contains comments anyway)
+- resolution.ini (does not exist in image)
+
+## Steps to boot CoreElec
+### aml_autoscript
+The first script aml_autoscript runs when the so called reset button is pressed after power up ("Toothpick method).
+It's important actions:
+- set variable bootcmd to commands that will figure out from which drive to boot.
+- save
+- reboot
+
+### bootcmd
+At next power up, bootcmd runs from the environment and figures out from which drive to boot. Also loads cfgload to get more details, finally starts the kernel with bootm.
+Kernel always has the name kernel.img, dtb is dtb.img
+You need to copy one of the *.dtb files to dtb.img.
+
+### cfgload
+This is called by the bootcmd to provide more boot details (mainly kernel boot args). It also imports the config.ini and resolution.ini.
+
+### config.ini
+Imported by cfgload, default only contains comments. Can be used to change settings used by the kernel.
+
+### resolution.ini
+This is an optional file and will only be imported by cfgload if it exists.
+
+## Caution: Running CoreElec will prevent to install Armbian.
+You can read a reflash of the NAND with the original image is required to fix this. Fortunatelly it is easier than that. Just delete the variable "BootFromSD".
+Reseting the U-Boot environment with default values should help as well:
+
+	defenv
+	saveenv
+	reboot
+
 # Armbian
 Boot up Armbian for TV-Boxes is more complex compared to the other two OS. Even uses a second stage boot loader. I have read one of the reasons is bugs in some original boot loaders that prevent colors from showing correctly.
 
@@ -57,7 +111,7 @@ Uses 7 scripts:
 - boot-emmc.scr
 - boot-emmc.ini
 
-Edit the uEnv.ini so it describes which kernel, initrd and dtb to use.
+Edit the uEnv.ini so it describes which kernel, kernel boot parameter, initrd and dtb to use.
 A '#' marks a comment.
 
 ### Chain load U-Boot
@@ -93,22 +147,16 @@ Both do load the u-boot.ext into memory and run it. This starts an instance of a
 ### boot.scr
 This script is executed by the the U-Boot (from u-boot.ext).
 It looks up kernel, ramdisk and device tree from uEnv.txt and loads them into memory. Finally it calls the booti command to start the kernel.
-# CoreElec
-Uses 3 scripts:
-- aml_autoscript
-- cfgload
-- config.ini (I am not sure how this is loaded. Only contains comments anyway)
-
-You need to copy one of the *.dtb files to dtb.img.
-### Caution: Running CoreElec will prevent to install Armbian.
-You can read a reflash of the NAND with the original image is required to fix this. Fortunatelly it is easier than that. Just delete the variable "BootFromSD".
-Reseting the U-Boot environment with default values should help as well:
-
-	defenv
-	saveenv
-	reboot
 
 # How to get sources of the scripts
-The executable scripts contain a binary header with a checksum followed by the text of the script. That allows to use a hex editor like ghex to extract the script text.
+The executable scripts contain a binary header with a checksum followed by the text of the script. That allows to use a hex editor like ghex to extract the script text. I did that for you already.
 
 Armbian contains the sources additionally to the binary versions. So there it is easy to get them.
+
+# Where to find the button for the "toothpick" method?
+With some devices this button sits just behind the audio outlet and can be accessed by this hole with a plastic or wooden toothpick.
+
+Some other devices have a very small hole for a paper clip.
+On the TX3 this small hole sits between USB2 and audio outlet.
+
+Press only gentle, you can feel the button spring.
