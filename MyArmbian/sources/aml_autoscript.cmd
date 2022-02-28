@@ -9,4 +9,4 @@ setenv upgrade_step 2
 saveenv
 sleep 1
 reboot
-# Mod by Dieter Fauth
+# Mod by Dieter Fauth, https://github.com/FauthD/amlogic-u-boot-scripts

@@ -1,5 +1,5 @@
 echo "Start AMLOGIC mainline U-boot"
-setenv loadaddr "0x44000000"
+setenv env_addr "0x44000000"
 setenv l_mmc "0 1 2 3"
 for devtype in "usb mmc" ; do
 	if test "${devtype}" = "mmc"; then
@@ -7,8 +7,8 @@ for devtype in "usb mmc" ; do
 	fi 
 	for devnum in ${l_mmc} ; do
 		if test -e ${devtype} ${devnum} uEnv.txt; then
-			load ${devtype} ${devnum} ${loadaddr} uEnv.txt
-			env import -t ${loadaddr} ${filesize}
+			load ${devtype} ${devnum} ${env_addr} uEnv.txt
+			env import -t ${env_addr} ${filesize}
 			setenv bootargs ${APPEND}
 			if printenv mac; then
 				setenv bootargs ${bootargs} mac=${mac}
@@ -37,4 +37,4 @@ echo "End of df boot.scr"
 
 # Recompile with:
 # mkimage -C none -A arm -T script -d /boot/boot.cmd /boot/boot.scr
-# Mod by Dieter Fauth
+# Mod by Dieter Fauth, https://github.com/FauthD/amlogic-u-boot-script
