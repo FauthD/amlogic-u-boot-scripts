@@ -6,13 +6,16 @@ echo "Try chainload a newer u-boot"
 if fatload mmc 0 0x1000000 u-boot.ext; then go 0x1000000; fi;
 if fatload usb 0 0x1000000 u-boot.ext; then go 0x1000000; fi;
 echo "Proceed with old u-boot"
-# I could not boot with old u-boot. It does not like the dtb.
-setenv fdt_addr_r 0x1000000
-#setenv env_addr 0x10400000
-setenv env_addr 0x44000000
-#setenv kernel_addr_r 0x11000000
-setenv kernel_addr_r 0x08080000
+
+#  setenv fdt_addr_r 0x1000000
+#  #setenv env_addr 0x10400000
+#  setenv env_addr 0x44000000
+#  #setenv kernel_addr_r 0x11000000
+#  setenv kernel_addr_r 0x08080000
+
 setenv ramdisk_addr_r 0x13000000
+printenv
+
 setenv l_mmc "0"
 for devtype in "mmc usb" ; do 
 	if test "${devtype}" = "usb"; then
@@ -21,8 +24,8 @@ for devtype in "mmc usb" ; do
 	fi
 	for devnum in ${l_mmc} ; do
 		if test -e ${devtype} ${devnum} uEnv.txt; then
-			fatload ${devtype} ${devnum} ${env_addr} uEnv.txt
-			env import -t ${env_addr} ${filesize}
+			fatload ${devtype} ${devnum} ${loadaddr} uEnv.txt
+			env import -t ${loadaddr} ${filesize}
 			setenv bootargs ${APPEND}
 			if printenv mac; then
 				setenv bootargs ${bootargs} mac=${mac}
@@ -31,16 +34,29 @@ for devtype in "mmc usb" ; do
 			elif printenv ethaddr; then
 				setenv bootargs ${bootargs} mac=${ethaddr}
 			fi
-			if fatload ${devtype} ${devnum} ${kernel_addr_r} ${LINUX}; then
-				echo "kernel_addr_r=${kernel_addr_r}, LINUX=${LINUX}"
-				if fatload ${devtype} ${devnum} ${ramdisk_addr_r} ${INITRD}; then
-					echo "ramdisk_addr_r=${ramdisk_addr_r}, INITRD=${INITRD}"
-					if fatload ${devtype} ${devnum} ${fdt_addr_r} ${FDT}; then
-						echo "fdt_addr_r=${fdt_addr_r}, FDT=${FDT}"
-						echo "bootargs=${bootargs}"
-						echo "booti ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr_r}"
-						fdt addr ${fdt_addr_r}
-						booti ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr_r}
+			if fatload ${devtype} ${devnum} ${loadaddr} ${LINUX}; then
+				echo "loadaddr=${loadaddr}, LINUX=${LINUX}"
+				if fatload ${devtype} ${devnum} ${dtb_mem_addr} ${FDT}; then
+					echo "dtb_mem_addr=${dtb_mem_addr}, FDT=${FDT}"
+					RamDisk=0
+					if test '${INITRD}x' != 'x'; then
+						if test -e ${devtype} ${devnum} ${INITRD}; then
+							if fatload ${devtype} ${devnum} ${ramdisk_addr_r} ${INITRD}; then
+								RamDisk=1
+								echo "ramdisk_addr_r=${ramdisk_addr_r}, INITRD=${INITRD}"
+							fi
+						fi
+					fi
+					#echo "bootargs=${bootargs}"
+					#echo "booti ${loadaddr} ${ramdisk_addr_r} ${dtb_mem_addr}"
+					#fdt addr ${dtb_mem_addr}
+					#booti ${loadaddr} ${ramdisk_addr_r} ${dtb_mem_addr}
+					if itest ${RamDisk} == 1; then
+						echo "bootm ${loadaddr} ${ramdisk_addr_r} ${dtb_mem_addr}"
+						bootm ${loadaddr} ${ramdisk_addr_r} ${dtb_mem_addr}
+					else
+						echo "bootm ${loadaddr} - ${dtb_mem_addr}"
+						bootm ${loadaddr} - ${dtb_mem_addr}
 					fi
 				fi
 			fi
@@ -48,4 +64,4 @@ for devtype in "mmc usb" ; do
 	done
 done
 
-# Mod by Dieter Fauth, https://github.com/FauthD/amlogic-u-boot-scripts
+# By Dieter Fauth, https://github.com/FauthD/amlogic-u-boot-scripts
