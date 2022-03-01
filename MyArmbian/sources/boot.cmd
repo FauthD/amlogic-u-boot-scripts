@@ -19,14 +19,26 @@ for devtype in "usb mmc" ; do
 			fi
 			if load ${devtype} ${devnum} ${kernel_addr_r} ${LINUX}; then
 				echo "kernel_addr_r=${kernel_addr_r}, LINUX=${LINUX}"
-				if load ${devtype} ${devnum} ${ramdisk_addr_r} ${INITRD}; then
-					echo "ramdisk_addr_r=${ramdisk_addr_r}, INITRD=${INITRD}"
-					if load ${devtype} ${devnum} ${fdt_addr_r} ${FDT}; then
-						echo "fdt_addr_r=${fdt_addr_r}, FDT=${FDT}"
-						echo "bootargs=${bootargs}"
+				if load ${devtype} ${devnum} ${fdt_addr_r} ${FDT}; then
+					echo "fdt_addr_r=${fdt_addr_r}, FDT=${FDT}"
+					fdt addr ${fdt_addr_r}
+					RamDisk=0
+					if test '${INITRD}x' != 'x'; then
+						if test -e ${devtype} ${devnum} ${INITRD}; then
+							if fatload ${devtype} ${devnum} ${ramdisk_addr_r} ${INITRD}; then
+								RamDisk=1
+								echo "ramdisk_addr_r=${ramdisk_addr_r}, INITRD=${INITRD}"
+							fi
+						fi
+					fi
+
+					echo "bootargs=${bootargs}"
+					if itest ${RamDisk} == 1; then
 						echo "booti ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr_r}"
-						fdt addr ${fdt_addr_r}
 						booti ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr_r}
+					else
+						echo "booti ${kernel_addr_r} - ${fdt_addr_r}"
+						booti ${kernel_addr_r} - ${fdt_addr_r}
 					fi
 				fi
 			fi
