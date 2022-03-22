@@ -52,8 +52,25 @@ false   - do nothing, unsuccessfully
 fastboot- use USB Fastboot protocol
 fatinfo - print information about filesystem
 fatload - load binary file from a dos filesystem
+Usage:
+fatload <interface> [<dev[:part]> [<addr> [<filename> [bytes [pos]]]]]
+    - Load binary file 'filename' from 'dev' on 'interface'
+      to address 'addr' from dos filesystem.
+      'pos' gives the file position to start loading from.
+      If 'pos' is omitted, 0 is used. 'pos' requires 'bytes'.
+      'bytes' gives the size to load. If 'bytes' is 0 or omitted,
+      the load stops on end of file.
+      If either 'pos' or 'bytes' are not aligned to
+      ARCH_DMA_MINALIGN then a misaligned buffer warning will
+      be printed and performance will suffer for the load.
+	  
 fatls   - list files in a directory (default /)
 fatsize - determine a file's size
+Usage:
+fatsize <interface> <dev[:part]> <filename>
+    - Find file 'filename' from 'dev' on 'interface'
+      and determine its size.
+
 fd628   - vfd display
 fd650   - vfd display
 fdt     - flattened device tree utility commands
