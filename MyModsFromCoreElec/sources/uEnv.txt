@@ -1,0 +1,5 @@
+# example only
+# Kernel must be an Android image created with mkbootimg
+LINUX=/kernel-MYCE4.img
+FDT=/dtbs/4.9.269/amlogic/sm1_s905x3_4g_1gbit.dtb
+APPEND=root=LABEL=ROOTFS rootflags=data=writeback rw console=ttyS0,115200n8

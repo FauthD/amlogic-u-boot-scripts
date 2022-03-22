@@ -6,11 +6,11 @@ This is my attempt to understand the nasty boot details on these boxes.
 It is "Work in process" and by no means a tutorial in how to use U-Boot.
 
 # Caution
-It is your own responsibility if you damage something. Before you carry out an action, you should understand the details about what you do.
+It is your own responsibility if you damage something. Before you carry out any action, you should understand the details about what you do.
 # Logging
 To see what is going on, it is essential that you can see the log output of u-boot.
 Many boxes offer solder pads/holes marked with GND, TX, RX, VCC (or 3V). In my case the Tanix TX3 shows these 4 pads, so I soldered a 4 pin header into it and connected a USB-Serial adapter (FTDI): GND-GND, TX-RX, RX-TX. No connection on the VCC or 3V pin!
-You can use Putty to see and log the output. Did I mention you need to open the box in first place?
+You can use Putty to see and log the output. Did I mention you need to open the box in first place? That is easy with an "Ifixit metal spundger". My favorite tool to open housings. The best 3€ I ever spent.
 
 ### Shell of U-Boot
 You can even stop the boot and talk to the shell of u-boot.
@@ -27,7 +27,10 @@ Most (all?) of these boxes offer a way to reflash their NAND memory. This mechan
 
 A U-Boot script checks a button after power up and if pressed, runs the script aml_autoscript on SD or USB. This aml_autoscript is now used to boot Linux. The details vary though. The above is often called "toothpick method".
 
-In case there is no button, sarch in the settings of the box (Android). With luck you find a way to "reflash the device". That most likely also runs the aml_autoscript.
+In case there is no button, search in the settings of the box (Android). With luck you find a way to "reflash the device". That most likely also runs the aml_autoscript.
+
+So far the only way I found to run kernel V4.9 is to encapsule it as an Android image together with the intial ramdisk.
+Kernels like V5.10 or above can be booted easily with the booti command.
 
 # Various operating systems
 The different operating systems use flavours of the above method to boot.
@@ -147,6 +150,31 @@ Both do load the u-boot.ext into memory and run it. This starts an instance of a
 ### boot.scr
 This script is executed by the the U-Boot (from u-boot.ext).
 It looks up kernel, ramdisk and device tree from uEnv.txt and loads them into memory. Finally it calls the booti command to start the kernel.
+
+# Booting kernels V4.9 as Android image
+These older kernels cannot be booted directly with booti or bootm. There are various reasons for this, mainly bugs in the vendor u-boot. Chainloading also fails because the chainloaded modern u-boot cannot start kernels below 4.14.
+A solution was found by the CoreElec team (or LibreElec team?). They encapsule their kernel into an Android image together with the initial ramdisk.
+Therefore I tried to use the same method, however my kernel image is much bigger that the CE image (init ramdisk is bigger since I wanted to run Ubuntu). The vendor u-boot has an issue with images above 32MB. For luck I found an easy workaround: Using another load address (0x8080000).
+My scripts are kind of a mix between the CoreElec and Armbian scripts. There is an uEnv.ini that needs to contain the names of kernel and dtb as well as kernel cmd line. No chainloading is used.
+EMMC and SD-Kard installation are untested. I currently use an USB-Stick.
+There is a log of a succesfull boot in Logs/CE_Kernel_With_Ubuntu_ROOTFS.
+
+I do not know whether my scripts will work on devices  other than my Tanix TX3. Please report.
+### Uses 3 scripts:
+- aml_autoscript
+- s905_autoscript
+- uEnv.ini
+
+### aml_autoscript
+The first script aml_autoscript runs when the so called reset button is pressed after power up ("Toothpick method).
+It's important actions:
+- set variable bootcmd to commands that will figure out from which drive to boot.
+- save
+- reboot
+
+### s905_autoscript
+At next power up, start_autoscript runs and either calls s905_autoscript (SD, USB) (later perhaps emmc_autoscript).
+It looks up kernel, boot parameter and device tree from uEnv.txt and loads them into memory. Finally it calls the bootm command to start the kernel as Android image.
 
 # How to get sources of the scripts
 The executable scripts contain a binary header with a checksum followed by the text of the script. That allows to use a hex editor like ghex to extract the script text. I did that for you already.
