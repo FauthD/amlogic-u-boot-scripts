@@ -1,5 +1,6 @@
 echo "Start AMLOGIC mainline U-boot"
 setenv env_addr "0x44000000"
+setenv kernel_addr_r "0x8200000"
 setenv l_mmc "0 1 2 3"
 for devtype in "usb mmc" ; do
 	if test "${devtype}" = "mmc"; then

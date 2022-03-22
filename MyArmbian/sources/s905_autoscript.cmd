@@ -54,9 +54,9 @@ for devtype in "mmc usb" ; do
 						fdt addr ${dtb_mem_addr}
 						booti ${loadaddr} ${ramdisk_addr_r} ${dtb_mem_addr}
 					else
-						echo "bootm/i ${loadaddr} - ${dtb_mem_addr}"
+						echo "bootm ${loadaddr} - ${dtb_mem_addr}"
 						bootm ${loadaddr} - ${dtb_mem_addr}
-						booti ${loadaddr} - ${dtb_mem_addr}
+						#booti ${loadaddr} - ${dtb_mem_addr}
 					fi
 				fi
 			fi
