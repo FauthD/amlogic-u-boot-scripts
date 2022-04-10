@@ -103,6 +103,9 @@ This is an optional file and will only be imported by cfgload if it exists.
 ## Kernel format
 CE uses an Android image format that also contains the initrd in the same file. See below for more details.
 
+## Enable kernel logs
+Remove the word "quiet" from the "bootargs=" line in uEnv.ini.
+
 ## Caution: Running CoreElec will prevent to install Armbian.
 You can read a reflash of the NAND with the original image is required to fix this. Fortunately it is easier than that. Just delete the variable "BootFromSD".
 Reseting the U-Boot environment with default values should help as well:
