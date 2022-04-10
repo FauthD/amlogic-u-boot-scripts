@@ -36,6 +36,9 @@ Kernels like V5.10 or above can be booted easily with the booti command.
 The different operating systems use flavours of the above method to boot.
 Find the sources of the scripts in the sub directories. There are also bash scripts to translate the script sources (with extension.cmd) to the binary scripts (either .scr or no extension).
 Files with .ini extension do not need to be translated, they work as text files.
+## Be aware of small variations
+Check carefully for small differences. E.g: Some use uEnv.ini, others uEnv.
+txt. 
 # LibreElec
 Uses 5 scripts:
 - aml_autoscript
@@ -60,10 +63,14 @@ It's important actions:
 (This is very much the same as with Armbian)
 ### s905_autoscript and emmc_autoscript
 At next power up, start_autoscript runs and either calls s905_autoscript (SD, USB), or emmc_autoscript. 
-It looks up kernel boot parameter and device tree from uEnv.txt and loads them into memory. Kernel has a fixed name KERNEL. Finally it calls the booti command to start the kernel.
+It looks up kernel boot parameter and device tree from uEnv.ini and loads them into memory. Kernel has a fixed name KERNEL. Finally it calls the bootm command to start the kernel.
 
 ### boot.scr
-There is a boot.scr and boot.ini in the image, but it looks like they are not used.
+There is a boot.scr and boot.ini in the image, but it looks like they are not used for Amlogic.
+
+## Kernel format
+LE uses an Android image format that also contains the initrd in the same file. See below for more details.
+
 # CoreElec
 Uses 3 scripts:
 - aml_autoscript
@@ -81,7 +88,7 @@ It's important actions:
 
 ### bootcmd
 At next power up, bootcmd runs from the environment and figures out from which drive to boot. Also loads cfgload to get more details, finally starts the kernel with bootm.
-Kernel always has the name kernel.img, dtb is dtb.img. 
+Kernel always has the name kernel.img, dtb is dtb.img.
 You need to copy one of the *.dtb files to dtb.img.
 
 ### cfgload
@@ -92,6 +99,9 @@ Imported by cfgload, default file only contains comments. Can be used to change 
 
 ### resolution.ini
 This is an optional file and will only be imported by cfgload if it exists.
+
+## Kernel format
+CE uses an Android image format that also contains the initrd in the same file. See below for more details.
 
 ## Caution: Running CoreElec will prevent to install Armbian.
 You can read a reflash of the NAND with the original image is required to fix this. Fortunately it is easier than that. Just delete the variable "BootFromSD".
